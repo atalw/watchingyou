@@ -27,10 +27,10 @@
             } else { 
               timeOfDay = "evening";
             }
-            var location;
-            $.get("http://ipinfo.io", function (response) {
-                location = response.region;
-            }, "jsonp");
+            var location = geoip_country_name();
+            // $.get("http://ipinfo.io", function (response) {
+            //     location = response.region;
+            // }, "jsonp");
             $("#creep").typed({
                 strings: ["^1000Hello.^4000<br>I have been expecting you.^4000<br>I have been watching you.^2000<br>I know where you live.^4000<br>Do you not believe me?^4000<br>It's " + dayOfWeek + ", right?^1000<br>You live in " + location],
                 typeSpeed: 30,
