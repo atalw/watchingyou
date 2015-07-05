@@ -6,7 +6,10 @@ body {
     color: #00CC00;
     background-color: #000000
 }
-
+a {
+  color: #00CC00;
+  text-decoration: none;
+}
 #container {
     width: 100%;
     margin-left: 10%;
@@ -14,26 +17,33 @@ body {
 #creep {
     bottom: 0;
     position: absolute;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
+}
+#home {
+    bottom: 0;
+    position: absolute;
+    margin-bottom: 7%;
+    margin-left: -0.8%;
+    background: #787878;
 }
 .typed-cursor{
     opacity: 0;
 }
 
 #creep:after {
-  visibility: visible;
-  content: '';
-  background-color: #d4f8e3;
-  display: inline-block;
-  position: relative;
-  width: 0.5em;
-  height: 1em;
-  top: 5px;
-  margin-left: 0;
-  -moz-box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
-  -webkit-box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
-  box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
-  -webkit-animation: blink 0.7s infinite;
+    visibility: visible;
+    content: '';
+    background-color: #d4f8e3;
+    display: inline-block;
+    position: relative;
+    width: 0.5em;
+    height: 1em;
+    top: 5px;
+    margin-left: 0;
+    -moz-box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+    -webkit-box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+    box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+    -webkit-animation: blink 0.7s infinite;
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }

@@ -10,6 +10,7 @@
                     var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
                     var dayOfWeekIndex = (new Date()).getDay();
                     var dayOfWeek = weekdays[dayOfWeekIndex];
+                    var nextDayOfWeek = weekdays[dayOfWeekIndex+2];
                     var dayOfWeekPastIndex = Math.floor(weekdays.length * Math.random());
                     var dayOfWeekPast;
                     var hourOfDay = new Date().getHours();
@@ -29,11 +30,17 @@
                       timeOfDay = "evening";
                     }
                     $("#creep").typed({
-                        strings: ["^1000Hello.^4000<br>I have been expecting you.^4000<br>I have been watching you.^2000<br>I know where you live.^4000<br>Do you not believe me?^4000<br>It's " + dayOfWeek + " " + timeOfDay +", right?^1000<br>You live in " + response.city],
+                        strings: ["^1000Hello.^4000<br>I have been watching you.^4000<br>I know who you are.^2000<br>I know where you live.^4000<br>I can see you through your camera.^4000<br>Don't believe me?^4000<br>How's " + response.city + "?^4000<br>Haha.^500 It's " + dayOfWeek + " " + timeOfDay +"...^500<br>On "+ nextDayOfWeek + ", 2 days from now, somebody will knock on your door.^2000<br>DO NOT OPEN.^4000<br>You are not safe anymore.^3000", "^500Good Luck."],
                         typeSpeed: 30,
+                        backSpeed: -5,
                         loop: false,
                         loopCount: false,
                     });
+                });
+                $(document).ready(function() {
+                    setTimeout(function() {
+                        $('#home').append('<a href="atalwar.com">HOME</a>');
+                    }, 70000);
                 });
             }, "jsonp");
         </script>
@@ -42,6 +49,7 @@
     <body>
         <div id="container">
             <span id="creep"></span>
+            <span id="home"></span>
         </div>
         
     </body>
