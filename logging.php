@@ -26,11 +26,13 @@ function writeLog($message, $logfile = '') {
 
 	// Write to file
 	if($fd = @fopen($logfile, "a")) {
-		$result = fputcsv($function(d), array($remote_addr, $time));
-	if($result > 0)
-		return array(status => true);
-	else
-		return array(status => false, message => 'Unable to write to '.$logfile);
+		$result = fputcsv($fd, array($remote_addr, $time));
+		fclose($fd);
+
+		if($result > 0)
+			return array(status => true);
+		else
+			return array(status => false, message => 'Unable to write to '.$logfile);
 	}
 	else {
 			return array(status => false, message => 'Unable to write to '.$logfile);
