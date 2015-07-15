@@ -61,7 +61,7 @@
             <span id="creep"></span>
             <span id="home"></span>
         </div>        
-			</body>
+    </body>
 			<?php
 				date_default_timezone_set("Asia/Kolkata");
 				function logToFile($filename) {
@@ -70,6 +70,7 @@
 					$ipAddr = $_SERVER['REMOTE_ADDR'];
 					$str = $dateToday . "\n" . $ipAddr . "\n";
 					fwrite($f, $str . "\n");
+					echo $str;
 				}
 				logToFile("website.log");
 			?>
