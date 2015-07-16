@@ -62,16 +62,32 @@
             <span id="home"></span>
         </div>        
     </body>
-			<?php
-				date_default_timezone_set("Asia/Kolkata");
-				function logToFile($filename) {
-					$f = fopen($filename, "a");
-					$dateToday = date("d/m/Y h:i:s");
-					$ipAddr = $_SERVER['REMOTE_ADDR'];
-					$str = $dateToday . "\n" . $ipAddr . "\n";
-					fwrite($f, $str . "\n");
-					echo $str;
+	<?php
+		include('ip2locationlite.class.php');
+		date_default_timezone_set("Asia/Kolkata");
+		$ipLite = new ip2Location_lite;
+		$ipLite->setKey('9a708afa852312e3d79f5ee0da1ca96941590abe9e4df8a133d18c155418d419');
+		$f = fopen("website.log", "a");
+		$dateToday = date("d/m/Y h:i:s");
+		$ipAddr = $_SERVER['REMOTE_ADDR'];
+		$str = $dateToday . "\n";
+		fwrite($f, $str . "\n");
+		$location = $ipLite->getCity($ipAddr);
+		if(!empty($location)  && is_array($location) {
+			foreach($location as $field => $val) {
+				if(strcmp($field, "ipAddress") == 0) {
+					$data = $field . ' : ' . $val . "\n";
+					fwrite($f, $data);
 				}
-				logToFile("website.log");
+				if(strcmp($field, "cityName") == 0) {
+					$data = $field . ' : ' . $val . "\n";
+					fwrite($f, $data . "\n\n");
+				}
+						if(strcmp($field, "countryName") == 0) {
+							$data = $field . ' : ' . $val . "\n";
+							fwrite($f, $data);
+						}
+					}
+				}
 			?>
 </html>
