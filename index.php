@@ -71,9 +71,9 @@
 		$dateToday = date("d/m/Y h:i:s");
 		$ipAddr = $_SERVER['REMOTE_ADDR'];
 		$str = $dateToday . "\n";
-		fwrite($f, $str . "\n");
+		fwrite($f, $str);
 		$location = $ipLite->getCity($ipAddr);
-		if(!empty($location)  && is_array($location) {
+		if(!empty($location)  && is_array($location)) {
 			foreach($location as $field => $val) {
 				if(strcmp($field, "ipAddress") == 0) {
 					$data = $field . ' : ' . $val . "\n";
